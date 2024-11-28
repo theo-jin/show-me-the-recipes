@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const RecipeListItemSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   name: z.string(),
   cookTimeMinutes: z.number(),
   prepTimeMinutes: z.number(),
@@ -23,7 +23,7 @@ export const getRecipesResponseSchema = z.object({
 export type GetRecipesResponse = z.infer<typeof getRecipesResponseSchema>;
 
 export const RecipeSchema = z.object({
-  id: z.string(),
+  id: z.number(),
   name: z.string(),
   cookTimeMinutes: z.number(),
   difficulty: z.string(),

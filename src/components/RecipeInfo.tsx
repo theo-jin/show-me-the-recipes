@@ -36,8 +36,10 @@ export default function RecipeInfo({ recipe }: RecipeInfoProps) {
             <InfoItem label="평 점" value={recipe.rating} />
             <p className="text-medium">
               <span className="font-semibold"> 음식종류:</span>
-              {recipe.mealType.map((el) => (
-                <span className="mx-1">{el}</span>
+              {recipe.mealType.map((el, index) => (
+                <span key={index} className="mx-1">
+                  {el}
+                </span>
               ))}
             </p>
           </div>

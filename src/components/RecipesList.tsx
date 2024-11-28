@@ -3,6 +3,7 @@ import { cn } from '../lib/utils';
 import { RecipesCard } from './RecipesCard';
 import useInfiniteRecipes from '../hooks/useInfiniteRecipes';
 import { useInView } from 'react-intersection-observer';
+import { useFavoritesStore } from '@/store/use-favorites-store';
 
 export function RecipesList() {
   const {
@@ -21,6 +22,8 @@ export function RecipesList() {
       fetchNextPage();
     }
   }, [inView, fetchNextPage, hasNextPage, isFetchingNextPage]);
+
+  const { isFavorite, addFavorite, removeFavorite } = useFavoritesStore();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -43,7 +46,7 @@ export function RecipesList() {
         {data?.pages.flatMap((page) =>
           page.recipes?.map(
             (recipe: {
-              id: string;
+              id: number;
               name: string;
               cookTimeMinutes: number;
               prepTimeMinutes: number;
@@ -51,7 +54,20 @@ export function RecipesList() {
               image: string;
               tags: string[];
               mealType: string[];
-            }) => <RecipesCard key={recipe.id} recipe={recipe} />
+            }) => (
+              <RecipesCard
+                key={recipe.id}
+                recipe={recipe}
+                isFavorite={isFavorite(recipe.id)}
+                onFavorite={() => {
+                  if (isFavorite(recipe.id) === true) {
+                    removeFavorite(recipe.id);
+                  } else {
+                    addFavorite(recipe);
+                  }
+                }}
+              />
+            )
           )
         )}
         <div ref={ref}>

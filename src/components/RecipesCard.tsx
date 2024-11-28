@@ -4,16 +4,22 @@ import { Badge } from './ui/badge';
 import { cn } from '../lib/utils';
 import { RecipeListItem } from '../schemas/recipe';
 import { Link } from 'react-router-dom';
+import { Button } from './ui/button';
+import { StarIcon } from 'lucide-react';
 
 export interface RecipesCardProps {
   recipe: RecipeListItem;
   disableLink?: boolean;
+  isFavorite: boolean;
+  onFavorite: () => void;
 }
 
 export function RecipesCard({
   className,
   recipe,
   disableLink = false,
+  isFavorite,
+  onFavorite,
   ...props
 }: RecipesCardProps & HTMLAttributes<HTMLDivElement>) {
   const {
@@ -57,14 +63,24 @@ export function RecipesCard({
             {ImageContent}
           </Link>
         )}
+        <Button
+          className="absolute right-2 top-2"
+          onClick={onFavorite}
+          variant="ghost"
+        >
+          {isFavorite ? (
+            <StarIcon fill={'#FFD700'} stroke={'#FFD700'} />
+          ) : (
+            <StarIcon fill={'transparent'} className={'text-gray-400'} />
+          )}
+        </Button>
         <figcaption className={'space-y-1'}>
           <div className="absolute left-5 top-5 font-bold text-red-500">
             <Badge variant={'destructive'}>
               {cookTimeMinutes + prepTimeMinutes}분
             </Badge>
-            
           </div>
-          
+
           <div className={'flex flex-wrap items-center gap-1'}>
             {tags.map((tag: any) => (
               <Badge key={tag}>{tag}</Badge>
