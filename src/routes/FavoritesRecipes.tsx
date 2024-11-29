@@ -4,7 +4,6 @@ import { cn } from '@/lib/utils';
 
 export default function FavoritesRecipePage() {
   const { favoriteRecipes, removeFavorite } = useFavoritesStore();
-  console.log({ favoriteRecipes });
 
   return (
     <div>
