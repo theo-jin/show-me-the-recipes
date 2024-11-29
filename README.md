@@ -8,6 +8,7 @@ https://dummyjson.com 사이트의 Recipes 데이터를 불러와 실시간 검�
 
 ## 기술 스택
 
+<p>
 <img src="https://img.shields.io/badge/typescript-3178C6?&logo=typescript&logoColor=white"  alt="typescript">
 <img src="https://img.shields.io/badge/pnpm-F69220?&logo=pnpm&logoColor=white" alt="pnpm">
 <img src="https://img.shields.io/badge/vite-646CFF?&logo=vite&logoColor=white" alt="vite">
@@ -21,6 +22,7 @@ https://dummyjson.com 사이트의 Recipes 데이터를 불러와 실시간 검�
 <img src="https://img.shields.io/badge/zod-3E67B1?&logo=zod&logoColor=white" alt="zod">
 <img src="https://img.shields.io/badge/Firebase-DD2C00?&logo=firebase&logoColor=white" alt="Firebase">
 <img src="https://img.shields.io/badge/eslint-4B32C3?&logo=eslint&logoColor=white" alt="eslint">
+</p>
 
 ## 구현 기능
 
