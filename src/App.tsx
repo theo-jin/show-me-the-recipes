@@ -27,7 +27,6 @@ export default function App() {
           <Route path="/" element={<Recipes />} />
           <Route path="/:id" element={<Recipe />} />
           <Route path="/favorites" element={<FavoritesRecipePage />} />
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>

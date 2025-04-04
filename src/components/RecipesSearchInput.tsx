@@ -3,7 +3,7 @@ import { cn } from '../lib/utils';
 import { Input } from './ui/input';
 import { SearchIcon } from 'lucide-react';
 import { useRecipesSearchParams } from '../hooks/useRecipesSearchParams';
-import { useDebounce } from '../lib/useDebounce';
+import { useDebounce } from '../hooks/useDebounce';
 
 export function RecipesSearchInput({
   className,
